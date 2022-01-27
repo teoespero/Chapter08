@@ -18,30 +18,13 @@ bool checkifpalindrome(string text) {
 	for (int pointer = text.length()-1; pointer >= 0; pointer--)
 		reversedtext += text[pointer];
 
-	cout << text.length() << endl << reversedtext.length() << endl;
+	cout << text << endl << reversedtext << endl;
 
 	if (reversedtext == text)
 		return true;
 	else
 		return false;
 
-}
-
-
-void keeprunning(char& response) {
-	cout << "Run it again.....";
-	cin >> response;
-}
-
-bool stopit(char answer) {
-	if (tolower(answer) == 'y')
-		return true;
-	else if (tolower(answer) == 'n')
-		return false;
-	else {
-		cout << "\t***Invalid response..." << endl;
-		return false;
-	}
 }
 
 
@@ -53,15 +36,17 @@ void showresult(bool funresult) {
 		cout << "Not Palindrome....." << endl;
 }
 
-void gettextinput() {
-	string text;
+void gettextinput(string &text) {
+
 	cout << "enter some text....";
 	getline(cin, text);
-	showresult(checkifpalindrome(text));
+
 }
 
 int main(){
+	string text;
 
-	gettextinput();
+	gettextinput(text);
+	showresult(checkifpalindrome(text));
 	
 }
